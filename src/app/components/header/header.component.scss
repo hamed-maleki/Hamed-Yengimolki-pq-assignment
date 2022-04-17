@@ -1,0 +1,60 @@
+@import '../../../stylesVariables.scss';
+
+.header {
+    background-color: $headerBackgroundColor;
+    justify-content: center;
+
+    .container {
+        width: 75%;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo-container {
+            width: 10%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .auth-container {
+            color: $primary;
+        }
+    
+        .link-container {
+            width: 40%;
+            align-items: center;
+    
+            a {
+                padding: 1rem;
+                align-items: center;
+                color: $deactiveLinkColor;
+            }
+    
+            .selected {
+                color: $defaultTextColor;
+                border-bottom: 4px solid $primary;
+                height: 100%;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 74.999rem) {
+    .header {
+        .container {
+            width: 100%;
+    
+            .logo-container {
+                width: 90%;
+                text-align: center;
+                padding-top: 1rem;
+            }
+    
+            .link-container {
+                width: 100%;
+            }
+        }
+    }
+}

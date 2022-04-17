@@ -1,0 +1,63 @@
+<h1 class="page-title">
+    I want to convert
+</h1>
+<ngx-skeleton-loader *ngIf="currencyLoading" [theme]="{
+    height: '15rem',
+    width: '100%'
+  }">
+</ngx-skeleton-loader>
+<div class="form-container" *ngIf="!currencyLoading">
+    <form class="flex" [formGroup]="formBox" (ngSubmit)="submitClicked()">
+        <mat-form-field appearance="legacy">
+            <mat-label>Amount</mat-label>
+            <input matInput formControlName="amount" [(ngModel)]="convertElements.amount">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+            <mat-label>From</mat-label>
+            <input type="text" placeholder="Pick one" aria-label="Number" matInput formControlName="convertControlFrom" [(ngModel)]="convertElements.fromCurrency.value"
+                [matAutocomplete]="from">
+            <mat-autocomplete #from="matAutocomplete">
+                <mat-option *ngFor="let option of convertElements.fromCurrency.options | async" [value]="option.code">
+                    {{option.description}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <button mat-raised-button class="replace-buttton" (click)="reverseValues()">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">compare_arrows</mat-icon>
+        </button>
+        <mat-form-field appearance="legacy">
+            <mat-label>To</mat-label>
+            <input type="text" placeholder="Pick one"  aria-label="Number" matInput formControlName="convertControlTo"
+                [matAutocomplete]="to" [(ngModel)]="convertElements.toCurrency.value">
+            <mat-autocomplete #to="matAutocomplete">
+                <mat-option *ngFor="let option of convertElements.toCurrency.options | async" [value]="option.code">
+                    {{option.description}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <button mat-raised-button color="primary" [disabled]="!formBox.valid" (click)="submitClicked()">
+            CONVERT
+        </button>
+    </form>
+    <div class="center-align" *ngIf="convertedRate.rate && convertedRate.amount">
+        <p class="main-convert">
+            {{convertedRate.amount}} {{convertedRate.originalCurrency}} = 
+            <span>
+                {{(convertedRate.amount * convertedRate.rate) | number}} {{convertedRate.convertedCurrency}}
+            </span>
+        </p>
+        <p>
+            1 {{convertedRate.originalCurrency}} = {{convertedRate.rate}} {{convertedRate.convertedCurrency}}
+        </p>
+        <p>
+            1 {{convertedRate.convertedCurrency}} = {{(1 / convertedRate.rate) | number}} {{convertedRate.originalCurrency}}
+        </p>
+    </div>
+    <div class="cal-loader">
+        <ngx-skeleton-loader *ngIf="!convertedRate.rate" [theme]="{
+            height: '10rem',
+            width: '100%'
+          }" animation="false">
+        </ngx-skeleton-loader>
+    </div>
+</div>

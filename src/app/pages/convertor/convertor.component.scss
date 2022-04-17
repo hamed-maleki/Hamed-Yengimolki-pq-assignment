@@ -1,0 +1,57 @@
+@import "../../../stylesVariables.scss";
+@import "../../../mixins.scss";
+
+.converter-view-container {
+    padding: 1rem 0;
+    @include flex-direction(column);
+    align-items: center;
+
+    .convert-view {
+        width: 75%;
+
+        .hr {
+            border: 1px solid $hrBorderColor;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: $defaultTextColor;
+            padding: 1rem 0;
+            font-weight: bold;
+        }
+
+        .table-setting {
+            align-items: center;
+
+            mat-form-field {
+                margin-right: 7rem;
+            }
+
+            mat-radio-button {
+                margin: 0 2rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 74.999rem) {
+    .converter-view-container {
+        .convert-view {
+            width: 90%;
+
+            .table-setting {
+                flex-direction: row !important;
+                align-items: center;
+    
+                mat-form-field {
+                    margin-right: 0rem;
+                    width: 40%;
+                }
+                mat-radio-button {
+                    margin: 0 0 0 2rem;
+                }
+            }
+        }
+
+    }
+}

@@ -1,0 +1,12 @@
+@import "../../../stylesVariables.scss";
+.chart-container {
+    background-color: $headerBackgroundColor;
+    padding: 0.5rem;
+}
+
+@media (max-width: 74.999rem) {
+    .chart-container {
+        max-width: 100%;
+        overflow: auto;
+    }
+}

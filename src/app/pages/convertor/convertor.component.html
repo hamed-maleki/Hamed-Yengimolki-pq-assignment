@@ -1,0 +1,30 @@
+<div class="converter-view-container flex">
+    <div class="convert-view">
+        <app-convert-view (newConvert)="updateConvertInfo($event)"></app-convert-view>
+        <hr class="hr">
+        <h2 class="section-title">
+            EXCHANGE HISTORY
+        </h2>
+        <div class="flex table-setting">
+            <mat-form-field appearance="legacy">
+                <mat-label>Duration</mat-label>
+                <mat-select [(ngModel)]="tableSize" (selectionChange)="resizeTableData()">
+                    <mat-option value="7">7 days</mat-option>
+                    <mat-option value="15">15 days</mat-option>
+                    <mat-option value="30">30 days</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div>
+                <label></label>
+                <mat-radio-group  [(ngModel)]="viewType">
+                    <mat-radio-button value="table">Table</mat-radio-button>
+                    <mat-radio-button value="chart">Chart</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        <div>
+            <app-table-view [tableData]="convertTableData" *ngIf="viewType === 'table'"></app-table-view>
+            <app-chart-view #chartView [chartData]="convertChartData" *ngIf="viewType === 'chart' && convertChartData"></app-chart-view>
+        </div>
+    </div>
+</div>

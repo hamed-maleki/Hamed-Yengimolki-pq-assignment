@@ -1,0 +1,70 @@
+@import "../../../stylesVariables.scss";
+
+.page-title {
+    font-size: 3rem;
+    color: $defaultTextColor;
+    padding: 1rem 0;
+    font-weight: bold;
+}
+
+.form-container {
+    .replace-buttton {
+        color: $primary;
+    }
+
+    form {
+        justify-content: space-between;
+
+        mat-form-field {
+            width: 30%;
+
+            &:first-child {
+                width: 15%;
+            }
+        }
+    }
+}
+
+.center-align {
+    text-align: center;
+    padding: 2.5rem 0;
+    min-height: 10rem;
+
+    .main-convert {
+        padding: 1rem 0;
+        font-size: 3rem;
+        font-weight: lighter;
+
+        span {
+            color: $secondary;
+        }
+    }
+}
+
+.cal-loader {
+    margin-top: 2rem;
+}
+
+@media (max-width: 74.999rem) {
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+    .form-container {
+        form {
+            mat-form-field {
+                width: 100%;
+    
+                &:first-child {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .center-align {
+        .main-convert {
+            font-size: 2.5rem;
+        }
+    }
+}

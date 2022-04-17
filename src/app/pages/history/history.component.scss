@@ -1,0 +1,60 @@
+@import "../../../stylesVariables.scss";
+@import "../../../mixins.scss";
+
+.history-view-container {
+    padding: 1rem 0;
+    @include flex-direction(column);
+    align-items: center;
+
+    .history-view {
+        width: 75%;
+
+        .mat-header-row  {
+            th {
+                &:first-child {
+                    width: 20%;
+                }
+                &:last-child {
+                    width: 30%;
+                }
+            }
+        }
+
+        .mat-row {
+            td {
+                span, a {
+                    display: none;
+                    padding: 0 1.5rem 0 0;
+                }
+            }
+            &:hover {
+                td {
+                    span, a {
+                        mat-icon {
+                            padding-right: 0.5rem;
+                        }
+                        display: inline-flex;
+                        align-items: center;
+                        cursor: pointer;
+                    }
+
+                    .green-icon {
+                        color: $tableRowGreenAction;
+                    }
+
+                    .red-icon {
+                        color: $tableRowRedAction;
+                    }
+                }
+            }
+        }
+
+    }
+}
+@media (max-width: 74.999rem) {
+    .history-view-container {
+        .history-view {
+            width: 90%;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.table-container {
+    div {
+        flex-grow: 1;
+
+        &:first-child {
+            margin-right: 2rem;
+        }
+    }
+}
+
+@media (max-width: 74.999rem) {
+    .table-container {
+        div {
+            &:first-child {
+                margin: 2rem 0;
+            }
+        }
+    }
+}
