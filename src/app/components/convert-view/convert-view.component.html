@@ -22,7 +22,7 @@
                 </mat-option>
             </mat-autocomplete>
         </mat-form-field>
-        <button mat-raised-button class="replace-buttton" (click)="reverseValues()">
+        <button mat-raised-button type="button" class="replace-buttton" (click)="reverseValues()">
             <mat-icon aria-hidden="false" aria-label="Example home icon">compare_arrows</mat-icon>
         </button>
         <mat-form-field appearance="legacy">
@@ -35,7 +35,7 @@
                 </mat-option>
             </mat-autocomplete>
         </mat-form-field>
-        <button mat-raised-button color="primary" [disabled]="!formBox.valid" (click)="submitClicked()">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!formBox.valid">
             CONVERT
         </button>
     </form>
